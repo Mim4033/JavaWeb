@@ -8,6 +8,10 @@ public class JavaWebApplication {
 
     public static void main(String[] args) {
 
+
+
+        // test
+
         SpringApplication.run(JavaWebApplication.class, args);
     }
 
