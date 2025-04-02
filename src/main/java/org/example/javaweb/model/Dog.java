@@ -1,6 +1,8 @@
 package org.example.javaweb.model;
 
 import jakarta.persistence.*;
+import org.example.javaweb.model.Dog;
+
 
 @Entity
 @Table(name="Dog")

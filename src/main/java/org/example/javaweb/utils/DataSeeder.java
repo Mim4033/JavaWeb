@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
@@ -23,7 +24,7 @@ public class DataSeeder {
 
     Faker faker = new Faker();
 
-    public void Seed() throws URISyntaxException {
+    public void Seed() throws URISyntaxException, IOException {
         if(dogRepository.count() > 0 ){
             return;
         }
@@ -32,7 +33,7 @@ public class DataSeeder {
         }
     }
 
-    private Dog RandomDog() throws URISyntaxException {
+    private Dog RandomDog() throws URISyntaxException, IOException {
         Dog dog = new Dog();
         dog.setAge(faker.dog().age());
         dog.setName(faker.dog().name());
@@ -44,17 +45,22 @@ public class DataSeeder {
         return dog;
     }
 
-    private String getRandomImage() throws URISyntaxException {
+    private String getRandomImage() throws URISyntaxException, IOException {
         //Get all files in dir
-        URL resource = getClass().getClassLoader().getResource("static/images/dogs");
-        Path dir = Paths.get(resource.toURI());
-
-        Set<String> allFiles =  Stream.of(new File(String.valueOf(dir)).listFiles())
-                .filter(file -> !file.isDirectory())
-                .map(File::getName)
-                .collect(Collectors.toSet());
-
-        return getByRandomClass(allFiles);
+//        URL resource = getClass().getClassLoader().getResource("static/images/dogs");
+//        Path dir = Paths.get(resource.toURI());
+//
+//        Set<String> allFiles =  Stream.of(new File(String.valueOf(dir)).listFiles())
+//                .filter(file -> !file.isDirectory())
+//                .map(File::getName)
+//                .collect(Collectors.toSet());
+//
+//        return getByRandomClass(allFiles);
+        int []arr={0,1,2,3,8,9,24,25,30,34,36,38,40,42,50,60,61,63,66,84,85,88,91,92,94,197,110,111,112,116,117,135,144,146,152};
+        int rnd = new Random().nextInt(arr.length);
+        String s = String.valueOf(arr[rnd]);
+        return "dog." + s + ".jpg";
+//        Path dir = Paths.get(resource.toURI());
     }
 
     public static <T> T getByRandomClass(Set<T> set) {
