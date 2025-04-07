@@ -1,0 +1,1 @@
+web: java -jar target/JavaWeb-1.0-SNAPSHOT.jar
