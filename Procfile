@@ -1,1 +1,1 @@
-web: java -jar target/JavaWeb-0.0.1-SNAPSHOT.jar
+web: java -jar JavaWeb-0.0.1-SNAPSHOT.jar
