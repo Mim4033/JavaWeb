@@ -10,7 +10,7 @@
 
 :root {
     --main-font: 'Nunito Sans', 'Karla', sans-serif;
-    --first-color: rgb(9, 72, 179);
+    --first-color: rgb(8, 16, 30);
 }
 
 body {
@@ -164,7 +164,7 @@ nav .nav-item a {
 
 nav .nav-item a:hover {
     color: #f7a9a9;
-    background-color: #0e1f3c;
+    background-color: #2654a3;
     border-radius: .5rem;
 }
 
